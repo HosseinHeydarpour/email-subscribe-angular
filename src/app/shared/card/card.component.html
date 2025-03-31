@@ -1,0 +1,50 @@
+<div class="bg-zinc-800 p-2 mx-6 rounded-2xl">
+  <!-- Flex Container -->
+  <div class="flex flex-col md:flex-row rounded-l-xl">
+    <!-- Image -->
+    <img
+      src="image.jpg"
+      alt=""
+      class="object-fit rounded-xl h-80 md:h-64 md:rounded-l-xl md:rounded-r-none transform hover:scale-105 hover:rounded-xl duration-200"
+    />
+    <!-- Content -->
+    <div class="p-6 md:p-12 flex justify-center flex-col">
+      <h2
+        class="font-serif text-xl font-medium text-center text-white md:text-left"
+      >
+        Get diet and fitness tips in your inbox
+      </h2>
+      <p
+        class="mx-w-xs my-4 text-xs leading-5 tracking-wide text-center text-white md:text-left"
+      >
+        Eat better and exercise better. Sign up for Diet & Fitness newsletter.
+      </p>
+
+      <form
+        class="flex flex-col mt-5 space-y-4 md:space-x-3 md:flex-row md:space-y-0 md:items-center"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Enter your email address"
+            class="p-2 px-4 text-center text-white bg-zinc-800 border border-zinc-600 placeholder:text-xs placeholder:text-center md:placeholder:text-left md:text-left focus:outline-none w-full"
+            ngModel
+            required
+            email
+            #email="ngModel"
+            name="email"
+          />
+
+          @if(email.touched && email.invalid ){
+          <p class="text-xs mt-2 text-white opacity-65">
+            Please enter a valid email
+          </p>
+          }
+        </div>
+
+        <button appButton>Subscribe</button>
+      </form>
+    </div>
+  </div>
+</div>
